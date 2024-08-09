@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NamazItem</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+          crossorigin="anonymous">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            margin: 0;
+            background-image: url('https://wrc-info.ru/uploads/posts/2020-06/1593163667_5ac2bbbdeae244d4853a98a7901c8317_201606301745.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+
+        }
+
+        .container {
+            /*width: 800px;*/
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .card-text{
+            font-size: 2rem;
+            display: flex;
+
+        }
+
+        .card {
+            width: 34rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+
+        }
+
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding:50px;
+
+
+            /*display: flex;*/
+            /*justify-content: space-between;*/
+
+        }
+
+        .btn-primary, .btn-danger {
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        .new-user-btn {
+            margin-top: 20px;
+        }
+
+        .time-card {
+            display: flex;
+            gap: 187px;
+            /*justify-content: space-between;*/
+        }
+        .btn-box{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding-left: 3rem;
+            padding-right: 3rem;
+
+        }
+        .box{
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin: 0 50px 0 0 ;
+        }
+        .card-title{
+            margin-left: 120px;
+        }
+        .card-text1{
+            margin-left: 10px;
+            font-size: 2rem;
+
+        }
+        .card-text2{
+            margin-left: 10px;
+            font-size: 2rem;
+        }
+        .btn{
+            font-size: 30px;
+            margin-top: 40px;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="btn-box">
+    <a class="btn btn-primary new-user-btn" href="http://localhost:9080/home">Go back</a>
+    <a href="/namazItems/new" class="btn btn-primary new-user-btn">Add city</a>
+</div>
+<div class="container">
+    <div class="card" th:each="namazitems : ${namazitem}">
+        <div class="card-body">
+            <h2 class="card-title" th:text="${namazitems.cityName}"></h2>
+            <div class="time-card">
+                <h5 class="card-text" th:text="${namazitems.bagymdatTime}"></h5>
+                <h5 class="card-text" th:text="FADJR"></h5>
+            </div>
+            <div class="time-card">
+                <h5 class="card-text" th:text="${namazitems.kunChyguuTime}"></h5>
+                <h5 class="card-text">SUNRISE</h5>
+            </div>
+            <div class="time-card">
+                <h5 class="card-text" th:text="${namazitems.bechimTime}"></h5>
+                <h5 class="card-text1" th:text="ZUHR"></h5>
+            </div>
+            <div class="time-card">
+                <h5 class="card-text" th:text="${namazitems.asrTime}"></h5>
+                <h5 class="card-text" th:text="ASR"></h5>
+            </div>
+            <div class="time-card">
+                <h5 class="card-text" th:text="${namazitems.shamTime}"></h5>
+                <h5 class="card-text" th:text="MAGHRIB"></h5>
+            </div>
+            <div class="time-card">
+                <h5 class="card-text" th:text="${namazitems.kuptanTime}"></h5>
+                <h5 class="card-text2" th:text="ISHA"></h5>
+            </div>
+            <div class="time-card">
+                <h5 class="card-text" th:text="${namazitems.tahadjutTime}"></h5>
+                <h5 class="card-text" th:text="TAHADJUD"></h5>
+            </div>
+
+            <div class="box">
+
+                <form th:method="GET" th:action="@{/namazItems/update/{namazitemId}(namazitemId=${namazitems.id})}">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+                <form th:method="post" th:action="@{/namazItems/{namazitemId}/delete(namazitemId=${namazitems.id})}">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+</html>

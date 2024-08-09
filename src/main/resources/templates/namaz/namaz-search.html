@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Namaz</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 50px;
+            background-image: url('https://wrc-info.ru/uploads/posts/2020-06/1593163667_5ac2bbbdeae244d4853a98a7901c8317_201606301745.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+        }
+
+        .container {
+            width: 1000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .card {
+            width: 1000px;
+            max-width: 1000px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card img {
+            width: 200px; /* Increased size */
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px; /* Ensure there's space between the image and the text */
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        .card-body h5, .card-body p {
+            margin: 10px 0;
+        }
+
+        .card-body .actions {
+            margin-top: auto; /* Push buttons to the bottom */
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .btn:hover {
+            background-color: lightgray;
+        }
+
+        .new-namaz-btn {
+            margin-top: 20px;
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .new-namaz-btn:hover {
+            background-color: lightgray;
+        }
+
+        .route {
+            width: 200px;
+            height: 35px;
+            background: #cccccc;
+            color: black;
+            font-size: 25px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" th:if="${namazs}">
+    <div class="card" th:each="namaz : ${namazs}">
+        <img th:src="${namaz.image}" class="card-img-top" alt="Namaz Image">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${namaz.name}">Namaz title</h5>
+            <p class="card-text" th:text="${namaz.namazText}">Namaz description</p>
+            <p class="card-text" th:text="${namaz.audio}">Audio</p>
+
+            <div class="card-text">
+                <label>Audio:</label>
+                <audio controls>
+                    <source th:src="${namaz.audio}" type="audio/mpeg">
+                </audio>
+
+
+            </div>
+        </div>
+    </div>
+    <a class="btn new-user-btn" th:href="@{/namazs/namaz}">Go back</a>
+</div>
+</div>
+</body>
+</html>

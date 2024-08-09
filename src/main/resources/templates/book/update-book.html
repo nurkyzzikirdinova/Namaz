@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Book</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://wrc-info.ru/uploads/posts/2020-06/1593163667_5ac2bbbdeae244d4853a98a7901c8317_201606301745.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<form th:object="${book}" th:method="POST" th:action="@{/books/update/{bookId}(bookId=${book.id})}">
+    <div class="container">
+        <h2>Update Book</h2>
+        <hr>
+        <div class="mb-3">
+            <label for="name" class="form-label" aria-label="Name">Book title</label>
+            <input type="text" class="form-control" th:field="*{name}" id="name" aria-describedby="nameHelp">
+            <div id="nameHelp" class="form-text">Enter the name of the book.</div>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="price" class="form-label" aria-label="Price">Price</label>
+            <input type="number" class="form-control" th:field="*{price}" id="price" aria-describedby="priceHelp">
+            <div id="priceHelp" class="form-text">Enter the price of the book.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label" aria-label="Image URL">Image URL</label>
+            <input type="text" class="form-control" th:field="*{image}" id="image" aria-describedby="imageUrlHelp">
+            <div id="imageUrlHelp" class="form-text">Enter the URL of the book's image.</div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Authors</label>
+            <div th:each="user : ${allUser}">
+                <input type="radio" th:id="'user_' + ${user.id}" th:value="${user.id}" name="userId">
+                <label th:for="'user_' + ${user.id}" th:text="${user.firstName + ' ' + user.lastName}"></label>
+            </div>
+        </div>
+
+        <hr>
+        <button type="submit" class="btn">Update book</button>
+
+        <a class="btn new-user-btn" th:href="@{/books/book}">Go Back</a>
+    </div>
+</form>
+
+</body>
+</html>

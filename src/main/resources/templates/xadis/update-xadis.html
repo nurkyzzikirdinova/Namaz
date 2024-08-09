@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Xadis</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://img.freepik.com/premium-photo/image-is-beautiful-depiction-holy-book-islam-quran_14117-87546.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 300px;
+        }
+
+        .form-label {
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .registered {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .registered:hover {
+            background-color: #45a049;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ffffff33;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<form th:object="${xadis}" th:method="POST" th:action="@{/xadist/update/{xadisId}(xadisId=${xadis.id})}">
+    <div class="container">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" th:field="*{xadisText}" id="name" required>
+        </div>
+        <hr>
+        <button type="submit" class="registered">Update</button>
+    </div>
+    <a class="btn" href="http://localhost:9080/xadist/xadis">Go back</a>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <style>
+        body {
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://wrc-info.ru/uploads/posts/2020-06/1593163667_5ac2bbbdeae244d4853a98a7901c8317_201606301745.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: white;
+            margin-top: 50px;
+        }
+
+
+        .asasasasa {
+            display: flex;
+            gap: 50px;
+        }
+
+
+        .container {
+            width: 100%;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .container-btn {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search {
+            display: flex;
+            gap: 15px;
+        }
+
+        .parent {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .card {
+            width: 38rem;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: auto;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .two_button {
+            display: flex;
+            align-items: center;
+            gap: 100px ;
+        }
+
+        .new-book-btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            text-align: center;
+            margin-left: -1px;
+        }
+
+        .btn {
+            display: block;
+            width: 150px;
+            text-align: center;
+        }
+
+        .content {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<!--<form class="container-btn" role="search" th:method="GET" th:action="@{/books/search}">-->
+<!--    <div class="search">-->
+<!--        <input class="srch" type="search" name="word" placeholder="Type To text">-->
+<!--        <button class="btn" type="submit">Search</button>-->
+<!--    </div>-->
+<!--</form>-->
+<a class="btn" href="http://localhost:9080/home">Go Back</a>
+<a th:href="@{/books/new}" class="btn new-book-btn">New Book</a>
+<div class="content">
+
+    <div class="asasasasa" >
+        <div class="container" th:each="book : ${books}">
+            <div class="parent">
+                <div class="card">
+                    <img th:src="${book.image}" class="card-img-top" alt="Book Image">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${book.name}">Book Name: </h5>
+                        <p class="card-num" th:text="${book.price}">Price: </p>
+                        <p class="card-num" th:text="${book.user.firstName+' '+book.user.lastName}">Author: </p>
+                        <div class="two_button">
+                            <form th:method="post" th:action="@{/books/{bookId}/delete(bookId=${book.id})}">
+                                <button type="submit" class="btn">Delete</button>
+                            </form>
+
+                            <form th:object="${book}" th:method="GET" th:action="@{/books/update/{bookId}(bookId=${book.id})}">
+                                <button type="submit" class="btn">Update</button>
+                            </form>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div>
+    </div>
+
+</div>
+
+</body>
+</html>

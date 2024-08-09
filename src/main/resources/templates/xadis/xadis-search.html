@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Xadis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 50px;
+            background-image: url("https://cheese-head.ru/wp-content/uploads/8/5/3/85380e505bb5d7c3f1f1bb80f91c31a7.jpeg");
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+
+
+        }
+
+        .card {
+            width: 58rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            top: 50px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1234;
+        }
+
+        .card-text {
+            margin-bottom: 20px;
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .new-xadis-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+        }
+
+        .ali {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 20px;
+        }
+        .buttonContainer{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+<div class="search">
+    <input class="srch" type="search" name="" placeholder="Type To text">
+    <a href="">
+        <button class="btn">Search</button>
+    </a>
+</div>
+
+<div class="DivContainer">
+    <div class="ali">
+
+        <div class="container" th:each="xadists : ${xadist}">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text" th:text="${xadists.xadisText}">Hadith name</p>
+                    <div class="buttonContainer">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <a class="btn new-user-btn" th:href="@{/xadist/xadis}">Go back</a>
+
+    </div>'
+    <a class="btn" href="http://localhost:9080/xadist/xadis">Enter</a>
+
+</div>
+</body>
+</html>
