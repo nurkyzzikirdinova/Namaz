@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import peaksoft.springprojectislam_dini.MyExeption.MyException;
-import peaksoft.springprojectislam_dini.entity.Xadis;
-import peaksoft.springprojectislam_dini.service.XadisService;
+import springprojectislam_dini.MyExeption.MyException;
+import springprojectislam_dini.entity.Xadis;
+import springprojectislam_dini.service.XadisService;
 
 import java.util.List;
 
@@ -61,7 +61,7 @@ public class XadisController {
 
     @GetMapping("/search")
     public String searchXadis(@RequestParam String word, Model model){
-        List<Xadis>xadis = xadisService.XadisSearch(word);
+        List<Xadis> xadis = xadisService.XadisSearch(word);
         model.addAttribute("xadist", xadis);
         return "/xadis/xadis-search";
     }

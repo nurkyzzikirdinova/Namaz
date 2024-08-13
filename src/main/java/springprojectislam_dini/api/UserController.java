@@ -4,9 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import peaksoft.springprojectislam_dini.entity.User;
-import peaksoft.springprojectislam_dini.enums.Profession;
-import peaksoft.springprojectislam_dini.service.UserService;
+import springprojectislam_dini.entity.User;
+import springprojectislam_dini.enums.Profession;
+import springprojectislam_dini.service.UserService;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -74,7 +75,6 @@ public class UserController {
     public String searchUser(@RequestParam String word, Model model) {
         List<User> user = userService.UserSearch(word);
         model.addAttribute("users", user);
-//        model.addAttribute("word",word);
         return "/user/user-search";
     }
 }

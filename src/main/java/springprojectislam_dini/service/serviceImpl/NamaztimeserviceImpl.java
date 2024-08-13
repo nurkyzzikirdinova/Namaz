@@ -3,12 +3,13 @@ package springprojectislam_dini.service.serviceImpl;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import peaksoft.springprojectislam_dini.MyExeption.MyException;
-import peaksoft.springprojectislam_dini.entity.NamazTime;
-import peaksoft.springprojectislam_dini.repository.NamaztimeRepository;
-import peaksoft.springprojectislam_dini.service.NamaztimeService;
+import springprojectislam_dini.MyExeption.MyException;
+import springprojectislam_dini.entity.NamazTime;
+import springprojectislam_dini.repository.NamaztimeRepository;
+import springprojectislam_dini.service.NamaztimeService;
 
 import java.util.List;
+
 
 @Service
 @Transactional

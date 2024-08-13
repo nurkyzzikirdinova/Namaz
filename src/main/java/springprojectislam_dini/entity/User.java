@@ -2,7 +2,8 @@ package springprojectislam_dini.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import peaksoft.springprojectislam_dini.enums.Profession;
+import springprojectislam_dini.enums.Profession;
+
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;

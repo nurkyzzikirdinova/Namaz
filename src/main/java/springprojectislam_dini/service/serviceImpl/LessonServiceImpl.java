@@ -3,14 +3,15 @@ package springprojectislam_dini.service.serviceImpl;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import peaksoft.springprojectislam_dini.MyExeption.MyException;
-import peaksoft.springprojectislam_dini.entity.Lesson;
-import peaksoft.springprojectislam_dini.entity.User;
-import peaksoft.springprojectislam_dini.repository.LessonRepository;
-import peaksoft.springprojectislam_dini.repository.UserRepository;
-import peaksoft.springprojectislam_dini.service.LessonService;
+import springprojectislam_dini.MyExeption.MyException;
+import springprojectislam_dini.entity.Lesson;
+import springprojectislam_dini.entity.User;
+import springprojectislam_dini.repository.LessonRepository;
+import springprojectislam_dini.repository.UserRepository;
+import springprojectislam_dini.service.LessonService;
 
 import java.util.List;
+
 
 @Service
 @Transactional

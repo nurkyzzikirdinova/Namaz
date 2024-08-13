@@ -4,12 +4,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import peaksoft.springprojectislam_dini.MyExeption.MyException;
-import peaksoft.springprojectislam_dini.entity.Lesson;
-import peaksoft.springprojectislam_dini.service.LessonService;
-import peaksoft.springprojectislam_dini.service.UserService;
+import springprojectislam_dini.MyExeption.MyException;
+import springprojectislam_dini.entity.Lesson;
+import springprojectislam_dini.service.LessonService;
+import springprojectislam_dini.service.UserService;
 
 import java.util.List;
+
 
 @Controller
 @RequestMapping("/lessons")
@@ -65,7 +66,7 @@ public class LessonApi {
 
     @GetMapping("/search")
     public String searchLesson(@RequestParam String word, Model model){
-        List<Lesson>lessons = lessonService.LessonSearch(word);
+        List<Lesson> lessons = lessonService.LessonSearch(word);
         model.addAttribute("lessons", lessons);
         return "/lesson/lesson-search";
     }

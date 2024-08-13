@@ -1,15 +1,14 @@
 package springprojectislam_dini.service;
 
-import peaksoft.springprojectislam_dini.MyExeption.MyException;
-import peaksoft.springprojectislam_dini.entity.Lesson;
+import springprojectislam_dini.MyExeption.MyException;
+import springprojectislam_dini.entity.Lesson;
 
 import java.util.List;
 
 public interface LessonService {
     void saveLesson(Long userId, Lesson lesson);
 
-    List<Lesson>findAllLessons();
-//    List<Lesson> findAllLessonsByUserId(Long userId);
+    List<Lesson> findAllLessons();
 
     Lesson findByIdLesson(Long lessonId);
 
@@ -19,5 +18,4 @@ public interface LessonService {
 
     List<Lesson> LessonSearch(String word);
 
-//    void assignLessonToUser(Long lessonId, List<Long>userId) throws MyException;
 }

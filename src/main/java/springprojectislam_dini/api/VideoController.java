@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import peaksoft.springprojectislam_dini.entity.Video;
-import peaksoft.springprojectislam_dini.service.VideoService;
+import springprojectislam_dini.entity.Video;
+import springprojectislam_dini.service.VideoService;
 
 @Controller
 @RequestMapping("/videos")

@@ -4,10 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import peaksoft.springprojectislam_dini.entity.Namaz;
-import peaksoft.springprojectislam_dini.service.NamazService;
+import springprojectislam_dini.entity.Namaz;
+import springprojectislam_dini.service.NamazService;
 
 import java.util.List;
+
 
 @Controller
 @RequestMapping("/namazs")
@@ -60,7 +61,7 @@ public class NamazController {
 
     @GetMapping("/search")
     public String searchNamaz(@RequestParam String word, Model model){
-        List<Namaz>namazs = namazService.NamazSearch(word);
+        List<Namaz> namazs = namazService.NamazSearch(word);
         model.addAttribute("namazs", namazs);
         return "/namaz/namaz-search";
     }

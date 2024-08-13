@@ -3,12 +3,13 @@ package springprojectislam_dini.service.serviceImpl;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import peaksoft.springprojectislam_dini.MyExeption.MyException;
-import peaksoft.springprojectislam_dini.entity.Xadis;
-import peaksoft.springprojectislam_dini.repository.XadisRepository;
-import peaksoft.springprojectislam_dini.service.XadisService;
+import springprojectislam_dini.MyExeption.MyException;
+import springprojectislam_dini.entity.Xadis;
+import springprojectislam_dini.repository.XadisRepository;
+import springprojectislam_dini.service.XadisService;
 
 import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -30,13 +31,13 @@ public class XadisServiceImpl implements XadisService {
 
     @Override
     public Xadis findById(Long xadisId) throws MyException {
-        return xadisRepository.findById(xadisId).orElseThrow(() -> new MyException("Agency not found!"));
+        return xadisRepository.findById(xadisId).orElseThrow(() -> new MyException("Hadis not found!"));
     }
 
     @Override
     public void updateXadis(Long xadisId, Xadis newXadis) {
         try {
-            Xadis xadis = xadisRepository.findById(xadisId).orElseThrow(() -> new MyException("Agency not found!"));
+            Xadis xadis = xadisRepository.findById(xadisId).orElseThrow(() -> new MyException("Hadis not found!"));
             xadis.setXadisText(newXadis.getXadisText());
             xadisRepository.save(xadis);
         }catch (MyException e){

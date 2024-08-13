@@ -3,11 +3,11 @@ package springprojectislam_dini.service.serviceImpl;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import peaksoft.springprojectislam_dini.MyExeption.MyException;
-import peaksoft.springprojectislam_dini.entity.Video;
-import peaksoft.springprojectislam_dini.repository.UserRepository;
-import peaksoft.springprojectislam_dini.repository.VideoRepository;
-import peaksoft.springprojectislam_dini.service.VideoService;
+import springprojectislam_dini.MyExeption.MyException;
+import springprojectislam_dini.entity.Video;
+import springprojectislam_dini.repository.UserRepository;
+import springprojectislam_dini.repository.VideoRepository;
+import springprojectislam_dini.service.VideoService;
 
 import java.util.List;
 
@@ -38,15 +38,6 @@ public class VideoServiceImpl implements VideoService {
         }
         return null;
     }
-
-//    @Override
-//    public void updateVideoById(Long videoId, Video newVideo) throws MyException {
-//        Video video = videoRepository.findById(videoId).orElseThrow(() -> new MyException("Agency not found!"));
-//        video.setName(newVideo.getName());
-//        video.setVideoUrl(newVideo.getVideoUrl());
-//        videoRepository.save(video);
-//
-//    }
 
     @Override
     public void deleteVideoById(Long videoId) {

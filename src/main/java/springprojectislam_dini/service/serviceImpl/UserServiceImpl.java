@@ -3,12 +3,13 @@ package springprojectislam_dini.service.serviceImpl;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import peaksoft.springprojectislam_dini.MyExeption.MyException;
-import peaksoft.springprojectislam_dini.entity.User;
-import peaksoft.springprojectislam_dini.repository.UserRepository;
-import peaksoft.springprojectislam_dini.service.UserService;
+import springprojectislam_dini.MyExeption.MyException;
+import springprojectislam_dini.entity.User;
+import springprojectislam_dini.repository.UserRepository;
+import springprojectislam_dini.service.UserService;
 
 import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -32,7 +33,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findById(Long userId) {
         try {
-            return userRepository.findById(userId).orElseThrow(() -> new MyException("Agency not found!"));
+            return userRepository.findById(userId).orElseThrow(() -> new MyException("User not found!"));
         } catch (MyException e) {
             System.out.println(e.getMessage());
         }
@@ -42,7 +43,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateUserById(Long userId, User newUser) {
         try {
-            User user = userRepository.findById(userId).orElseThrow(() -> new MyException("Agency not found!"));
+            User user = userRepository.findById(userId).orElseThrow(() -> new MyException("User not found!"));
             user.setFirstName(newUser.getFirstName());
             user.setLastName(newUser.getLastName());
             user.setDateOfBirch(newUser.getDateOfBirch());
@@ -68,7 +69,7 @@ public class UserServiceImpl implements UserService {
             String pattern = word + "%";
             List<User> user = userRepository.searchUser(pattern);
             if (user == null || user.isEmpty()) {
-                throw new MyException("User Not found");
+                throw new MyException("User not found");
             } else {
                 return user;
             }

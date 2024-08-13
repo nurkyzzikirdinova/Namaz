@@ -3,12 +3,13 @@ package springprojectislam_dini.service.serviceImpl;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import peaksoft.springprojectislam_dini.MyExeption.MyException;
-import peaksoft.springprojectislam_dini.entity.Namaz;
-import peaksoft.springprojectislam_dini.repository.NamazRepository;
-import peaksoft.springprojectislam_dini.service.NamazService;
+import springprojectislam_dini.MyExeption.MyException;
+import springprojectislam_dini.entity.Namaz;
+import springprojectislam_dini.repository.NamazRepository;
+import springprojectislam_dini.service.NamazService;
 
 import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -28,7 +29,7 @@ public class NamazServiceImpl implements NamazService {
     @Override
     public Namaz findAllById(Long namazId) {
         try {
-            return namazRepository.findById(namazId).orElseThrow(() -> new MyException("Agency not found!"));
+            return namazRepository.findById(namazId).orElseThrow(() -> new MyException("Not found!"));
         } catch (MyException e) {
             System.out.println(e.getMessage());
         }
@@ -38,7 +39,7 @@ public class NamazServiceImpl implements NamazService {
     @Override
     public void updateNamaz(Long namazId, Namaz newNamaz) {
         try {
-            Namaz namaz = namazRepository.findById(namazId).orElseThrow(() -> new MyException("Agency not found!"));
+            Namaz namaz = namazRepository.findById(namazId).orElseThrow(() -> new MyException("Not found!"));
             namaz.setNamaztext1(newNamaz.getNamaztext1());
             namaz.setNamazText2(newNamaz.getNamazText2());
             namaz.setNamazText3(newNamaz.getNamazText3());

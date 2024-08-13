@@ -16,7 +16,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @Builder
 
-public class Xadis {
+public class Hadis {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "xadiss_gen")
     @SequenceGenerator(name = "xadiss_gen", sequenceName = "xadiss_seq",allocationSize = 1)
@@ -28,7 +28,7 @@ public class Xadis {
     @ManyToMany
     private List<User>users = new ArrayList<>();
 
-    public Xadis(String xadisText) {
+    public Hadis(String xadisText) {
         this.xadisText = xadisText;
     }
 
@@ -36,7 +36,7 @@ public class Xadis {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Xadis xadis = (Xadis) o;
+        Hadis xadis = (Hadis) o;
         return Objects.equals(id, xadis.id) && Objects.equals(xadisText, xadis.xadisText) && Objects.equals(users, xadis.users);
     }
 

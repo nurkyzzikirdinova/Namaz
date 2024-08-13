@@ -3,12 +3,12 @@ package springprojectislam_dini.service.serviceImpl;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import peaksoft.springprojectislam_dini.MyExeption.MyException;
-import peaksoft.springprojectislam_dini.entity.Book;
-import peaksoft.springprojectislam_dini.entity.User;
-import peaksoft.springprojectislam_dini.repository.BookRepository;
-import peaksoft.springprojectislam_dini.repository.UserRepository;
-import peaksoft.springprojectislam_dini.service.BookService;
+import springprojectislam_dini.MyExeption.MyException;
+import springprojectislam_dini.entity.Book;
+import springprojectislam_dini.entity.User;
+import springprojectislam_dini.repository.BookRepository;
+import springprojectislam_dini.repository.UserRepository;
+import springprojectislam_dini.service.BookService;
 
 import java.util.List;
 
@@ -37,7 +37,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public Book findByIdBook(Long bookId) {
         try {
-            return bookRepository.findById(bookId).orElseThrow(() -> new MyException("Agency not found!"));
+            return bookRepository.findById(bookId).orElseThrow(() -> new MyException("Book not found!"));
         } catch (MyException e) {
             System.out.println(e.getMessage());
         }
@@ -47,7 +47,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public void updateBookById(Long bookId, Book newBook) {
         try {
-            Book book = bookRepository.findById(bookId).orElseThrow(() -> new MyException("Agency not found!"));
+            Book book = bookRepository.findById(bookId).orElseThrow(() -> new MyException("Book not found!"));
             book.setName(newBook.getName());
             book.setPrice(newBook.getPrice());
             book.setImage(newBook.getImage());

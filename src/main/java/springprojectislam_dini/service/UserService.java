@@ -1,6 +1,7 @@
 package springprojectislam_dini.service;
 
-import peaksoft.springprojectislam_dini.entity.User;
+
+import springprojectislam_dini.entity.User;
 
 import java.util.List;
 
@@ -8,7 +9,7 @@ public interface UserService {
 
     void saveUser(User newUser);
 
-    List<User>findAllUser();
+    List<User> findAllUser();
 
     User findById(Long userId);
 

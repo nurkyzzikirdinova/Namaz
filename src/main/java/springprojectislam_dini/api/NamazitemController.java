@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import peaksoft.springprojectislam_dini.MyExeption.MyException;
-import peaksoft.springprojectislam_dini.entity.NamazTime;
-import peaksoft.springprojectislam_dini.service.NamaztimeService;
+import springprojectislam_dini.MyExeption.MyException;
+import springprojectislam_dini.entity.NamazTime;
+import springprojectislam_dini.service.NamaztimeService;
 
 @Controller
 @RequestMapping("/namazItems")
